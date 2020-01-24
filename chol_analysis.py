@@ -1,10 +1,11 @@
 def interface():
-    print("cholestterol calculator")
-    print("options: ")
-    print(" 9 - Quit")
-    choice = input("Enter your option: ")
-    if choice == '9':
-        return
+    while True:
+        print("cholestterol calculator")
+        print("options: ")
+        print(" 9 - Quit")
+        choice = input("Enter your option: ")
+        if choice == '9':
+            return
        
        
        
