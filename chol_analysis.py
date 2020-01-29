@@ -32,7 +32,8 @@ def cholesterol_analysis():
     else:
         print("test not recognized")
 
-
+def new_feature():
+    pass
 
 def interface():
     while True:
