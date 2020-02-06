@@ -30,6 +30,7 @@ def test_fever_check():
     assert answer == expected
 
 
+# learning travis
 def test_HDL_analysis():
     """Tests HDL_analysis method
     Args:
@@ -58,13 +59,13 @@ def test_LDL_analysis():
     assert answer == expected
 
 
-@pytest.mark.parametrize("i, o", [
+@pytest.mark.parametrize("input, output", [
     (100, 'Normal'),
     (50, 'Borderline Low'),
     (20, 'Low'),
     (55.5, 'Borderline Low'),
 ])
-def test_HDL_analysis_parametrize(i, o):
+def test_HDL_analysis_parametrize(input, output):
     """Parametrize Tests HDL_analysis method
     Args:
         HDL_level
@@ -72,6 +73,25 @@ def test_HDL_analysis_parametrize(i, o):
         Passed if answer == expected
     """
     from chol_analysis import HDL_analysis
-    answer = HDL_analysis(i)
-    expected = o
+    answer = HDL_analysis(input)
+    expected = output
+    assert answer == expected
+
+
+@pytest.mark.parametrize("input, output, expected", [
+    (100, 'Normal', True),
+    (50, 'Borderline Low', True),
+    (20, 'Low', True),
+    (100, 'Low', False),
+    (55.5, 'Borderline Low', True),
+])
+def test_HDL_analysis_parametrize(input, output, expected):
+    """Parametrize Tests HDL_analysis method
+    Args:
+        HDL_level
+    Returns:
+        Passed if answer == expected
+    """
+    from chol_analysis import HDL_analysis
+    answer = HDL_analysis(input) == output
     assert answer == expected
